@@ -2,7 +2,7 @@
 - run docker-compose build
 
 ## Create django app
-- run docker-compose run web_api django-admin startproject project-name
+- run docker-compose run web_api django-admin startproject project-name .
 
 ## Create react app
 - run docker-compose run web_react npx create-react-app front-end
