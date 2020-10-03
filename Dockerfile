@@ -1,15 +1,15 @@
-FROM python:3
+FROM python:3.8
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-RUN apt-get update
-RUN apt-get upgrade 
-RUN apt install build-essential
-RUN apt-get install -y npm
-RUN npm install -g npm@next
-RUN apt-get install -y nodejs
-RUN npm install -g n
-RUN npm install axios 
-RUN n stable   
+RUN apt-get update -y \
+  && apt-get upgrade -y \
+  && apt install build-essential apt-utils curl wget -y \
+  && apt-get install -y npm \
+  && npm install -g npm@next \
+  && apt-get install -y nodejs \
+  && npm install -g n \
+  && npm install axios  \
+  && n stable   
 RUN mkdir /app
 WORKDIR /app
 COPY requirements.txt /app/
